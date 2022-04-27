@@ -1,9 +1,11 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-
 include_once 'config/database.php';
 include_once 'class/Api.php';
+// $chave = true;
+
+// if ($chave == true) {
 $database = new Database();
 $db = $database->getConnection();
 $items = new Api($db);
@@ -35,3 +37,6 @@ if ($itemCount > 0) {
         array("message" => "Cadastro não encontrado.")
     );
 }
+// } else {
+//     echo json_encode("Chave inválida");
+// }
